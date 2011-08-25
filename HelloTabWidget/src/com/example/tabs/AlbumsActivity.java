@@ -115,7 +115,7 @@ public class AlbumsActivity extends ListActivity {
 		SongsList songList = dbHelper.fetchAllSongs();
 
 		// Now create an array adapter and set it to display using our row
-		ArrayAdapter songs = new ArrayAdapter(this, R.id.TextView01, songList.getSongsList()); 
+		ArrayAdapter songs = new ArrayAdapter(this, R.layout.artist_row, R.id.TextView01, songList.getSongsList()); 
 
 		setListAdapter(songs);
 	}
