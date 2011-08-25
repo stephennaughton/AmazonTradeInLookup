@@ -22,6 +22,7 @@ public class SongDetails extends Activity {
 	@Override
 	protected void onCreate(Bundle bundle) {
 		super.onCreate(bundle);
+		/*
 		mDbHelper = new SongsDBAdapter(this);
 		mDbHelper.open();
 		setContentView(R.layout.artist_edit);
@@ -45,8 +46,10 @@ public class SongDetails extends Activity {
 			}
 
 		});
+		*/
 	}
 
+	/*
 	private void populateFields() {
 		if (mRowId != null) {
 			Cursor todo = mDbHelper.fetchTodo(mRowId);
@@ -76,6 +79,8 @@ public class SongDetails extends Activity {
 		outState.putSerializable(SongsDBAdapter.KEY_ROWID, mRowId);
 	}
 
+	*/
+	
 	@Override
 	protected void onPause() {
 		super.onPause();
@@ -85,7 +90,7 @@ public class SongDetails extends Activity {
 	@Override
 	protected void onResume() {
 		super.onResume();
-		populateFields();
+		//populateFields();
 	}
 
 	private void saveState() {

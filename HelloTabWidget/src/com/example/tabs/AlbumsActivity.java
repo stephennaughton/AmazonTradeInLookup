@@ -15,6 +15,7 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView.AdapterContextMenuInfo;
+import android.widget.ArrayAdapter;
 import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.SimpleCursorAdapter;
@@ -112,17 +113,11 @@ public class AlbumsActivity extends ListActivity {
 
 	private void fillData() {
 		SongsList songList = dbHelper.fetchAllSongs();
-		
-
-		String[] from = new String[] { SongsDBAdapter.KEY_TITLE };
-		int[] to = new int[] { R.id.label };
 
 		// Now create an array adapter and set it to display using our row
-		ListAdapter notes = new ListAdapter()
-				
-				(this,
-				R.layout.artist_row, songList., from, to);
-		setListAdapter(notes);
+		ArrayAdapter songs = new ArrayAdapter(this, R.id.TextView01, songList.getSongsList()); 
+
+		setListAdapter(songs);
 	}
 
 	@Override

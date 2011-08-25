@@ -87,7 +87,11 @@ public class SongsDBAdapter {
 			thisSong.setIsbn(results.getString(5));			
 			
 			songList.addSong(thisSong);
+			results.moveToNext();
 		}		
+		
+		results.close();
+		
 		return songList;
 	}
 
@@ -111,7 +115,9 @@ public class SongsDBAdapter {
 			thisSong.setArtist(result.getString(2));
 			thisSong.setThumbnail(result.getString(3));
 			thisSong.setDescription(result.getString(4));
-			thisSong.setIsbn(result.getString(5));	
+			thisSong.setIsbn(result.getString(5));
+			
+			result.close();
 		}		
 		return thisSong;
 	}
