@@ -2,13 +2,13 @@ package com.example.data;
 
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
-import android.database.sqlite.SQLiteDatabase.CursorFactory;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.util.Log;
 
 public class SongsDatabaseHelper extends SQLiteOpenHelper {
 
 	private static final String DATABASE_NAME = "songsdata";
+	
 	private static final int DATABASE_VERSION = 1;
 	
 	private static final String DATABASE_CREATE = 

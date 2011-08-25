@@ -2,6 +2,7 @@ package com.example.data;
 
 public class SongInformation {
 	
+	private Integer id;
 	private String title;
 	private String artist;
 	private String thumbnail;
@@ -20,6 +21,12 @@ public class SongInformation {
 	  this.isbn = isbn;
   }
 	
+	public Integer getId() {
+  	return id;
+  }
+	public void setId(Integer id) {
+  	this.id = id;
+  }	
 	public String getTitle() {
   	return title;
   }

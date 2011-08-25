@@ -1,6 +1,7 @@
 package com.example.tabs;
 
 import com.example.data.SongsDBAdapter;
+import com.example.data.SongsList;
 
 import android.app.Activity;
 import android.app.ListActivity;
@@ -14,6 +15,7 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView.AdapterContextMenuInfo;
+import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.SimpleCursorAdapter;
 import android.widget.TextView;
@@ -24,7 +26,7 @@ public class AlbumsActivity extends ListActivity {
 	private static final int ACTIVITY_CREATE = 0;
 	private static final int ACTIVITY_EDIT = 1;
 	private static final int DELETE_ID = Menu.FIRST + 1;
-	private Cursor cursor;
+
 
 	/** Called when the activity is first created. */
 	@Override
@@ -73,7 +75,7 @@ public class AlbumsActivity extends ListActivity {
 		case DELETE_ID:
 			AdapterContextMenuInfo info = (AdapterContextMenuInfo) item
 					.getMenuInfo();
-			dbHelper.deleteTodo(info.id);
+			dbHelper.deleteSong(info.id);
 			fillData();
 			return true;
 		}
@@ -90,7 +92,7 @@ public class AlbumsActivity extends ListActivity {
 	protected void onListItemClick(ListView l, View v, int position, long id) {
 		super.onListItemClick(l, v, position, id);
 		Intent i = new Intent(this, SongDetails.class);
-		i.putExtra(SongsDBAdapter.KEY_ROWID, id);
+		i.putExtra("SongsDBAdapter.KEY_ROWID", id);
 		// Activity returns an result if called with startActivityForResult
 		
 		startActivityForResult(i, ACTIVITY_EDIT);
@@ -109,15 +111,17 @@ public class AlbumsActivity extends ListActivity {
 	}
 
 	private void fillData() {
-		cursor = dbHelper.fetchAllTodos();
-		startManagingCursor(cursor);
+		SongsList songList = dbHelper.fetchAllSongs();
+		
 
 		String[] from = new String[] { SongsDBAdapter.KEY_TITLE };
 		int[] to = new int[] { R.id.label };
 
 		// Now create an array adapter and set it to display using our row
-		SimpleCursorAdapter notes = new SimpleCursorAdapter(this,
-				R.layout.artist_row, cursor, from, to);
+		ListAdapter notes = new ListAdapter()
+				
+				(this,
+				R.layout.artist_row, songList., from, to);
 		setListAdapter(notes);
 	}
 
