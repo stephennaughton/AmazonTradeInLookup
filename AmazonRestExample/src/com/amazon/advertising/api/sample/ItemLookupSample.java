@@ -41,13 +41,13 @@ public class ItemLookupSample {
     /*
      * Your AWS Access Key ID, as taken from the AWS Your Account page.
      */
-    private static final String AWS_ACCESS_KEY_ID = "AKIAJ4TRBPEMPHH4R65Q";
+    private static final String AWS_ACCESS_KEY_ID = "****************";
 
     /*
      * Your AWS Secret Key corresponding to the above ID, as taken from the AWS
      * Your Account page.
      */
-    private static final String AWS_SECRET_KEY = "XD5NtnRomszG4or6386fgMt111szxqbxGOPRQgZq";
+    private static final String AWS_SECRET_KEY = "************************";
 
     /*
      * Use one of the following end-points, according to the region you are
